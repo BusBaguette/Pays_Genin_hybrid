@@ -1,6 +1,6 @@
 package com.hybrid.hybrid.controller.advice;
 
-import fr.iut.blankproject.controller.CustomException;
+import com.hybrid.hybrid.controller.CustomException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

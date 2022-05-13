@@ -11,7 +11,7 @@ import java.util.List;
  * et une mise en situation de leurs cas d'usages.
  */
 @RestController
-public class EntityController {
+public class VoitureController {
 
     final MongoRepository<Object, ObjectId> repository;
 
@@ -20,7 +20,7 @@ public class EntityController {
      * Spring fonctionne avec de l'injection de dépendances, pas d'annotation à rajouter dans les controller,
      * pas de new, il va s'en charger pour vous grâce à l'annotation présente sur cette classe.
      */
-    public EntityController(MongoRepository repository) { // Il vous faut une implem à vous pour que ça compile
+    public VoitureController(MongoRepository repository) { // Il vous faut une implem à vous pour que ça compile
         this.repository = repository;
     }
 

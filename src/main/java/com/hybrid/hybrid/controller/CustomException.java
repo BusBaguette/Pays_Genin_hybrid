@@ -1,4 +1,4 @@
-package fr.iut.blankproject.controller;
+package com.hybrid.hybrid.controller;
 
 /**
  * Classe représentant une exception métier de l'application.
