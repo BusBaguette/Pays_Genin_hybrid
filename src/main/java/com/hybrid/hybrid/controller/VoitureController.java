@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * Les Controller vont vous permettre une exposition rapide vos {@link MongoRepository}
+ * Les Controller vont vous permettre une exposition rapide vos {@link org.springframework.data.mongodb.repository.MongoRepository}
  * et une mise en situation de leurs cas d'usages.
  */
 @RestController
