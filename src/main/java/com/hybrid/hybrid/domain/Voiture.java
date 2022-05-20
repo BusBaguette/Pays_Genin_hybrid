@@ -1,21 +1,41 @@
 package com.hybrid.hybrid.domain;
 
+import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.CompoundIndex;
+import org.springframework.data.mongodb.core.index.CompoundIndexes;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+
 import java.util.UUID;
-
+@CompoundIndexes({@CompoundIndex(name = "marque_modele", def = "{'marque' : 1, 'model' : 1}")})
+@Document(collection = "Voiture")
 public class Voiture {
-    private UUID uuid;
-    private String marque;
-    private String model;
-    private float prix;
-    private int nbChvThermique;
-    private int nbChvElec;
-    private int couple;
-    private int puissanceElectrique;
-    private int autonomie;
-    private int vistessMax;
+    @Id
+    private ObjectId id;
 
-    public Voiture(UUID uuid, String marque, String model, float prix, int nbChvThermique, int nbChvElec, int couple, int puissanceElectrique, int autonomie, int vistessMax) {
-        this.uuid = uuid;
+    @Field(value = "marque")
+    private String marque;
+    @Field(value = "model")
+    private String model;
+    @Field(value = "prix")
+    private float prix;
+    @Field(value = "chevauxThermique")
+    private int nbChvThermique;
+    @Field(value = "chevauxElectrique")
+    private int nbChvElec;
+    @Field(value = "couple")
+    private int couple;
+    @Field(value = "puissanceElectrique")
+    private int puissanceElectrique;
+    @Field(value = "autonomie")
+    private int autonomie;
+    @Field(value = "vitesseMax")
+    private int vitesseMax;
+
+    public Voiture(ObjectId id, String marque, String model, float prix, int nbChvThermique, int nbChvElec, int couple, int puissanceElectrique, int autonomie, int vistessMax) {
+        this.id = id;
         this.marque = marque;
         this.model = model;
         this.prix = prix;
@@ -24,15 +44,18 @@ public class Voiture {
         this.couple = couple;
         this.puissanceElectrique = puissanceElectrique;
         this.autonomie = autonomie;
-        this.vistessMax = vistessMax;
+        this.vitesseMax = vitesseMax;
     }
 
-    public UUID getUuid() {
-        return uuid;
+    public Voiture() {
     }
 
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
+    public ObjectId getId() {
+        return id;
+    }
+
+    public void setId(ObjectId id) {
+        this.id = id;
     }
 
     public String getMarque() {
@@ -99,11 +122,11 @@ public class Voiture {
         this.autonomie = autonomie;
     }
 
-    public int getVistessMax() {
-        return vistessMax;
+    public int getVitesseMax() {
+        return vitesseMax;
     }
 
-    public void setVistessMax(int vistessMax) {
-        this.vistessMax = vistessMax;
+    public void setVitesseMax(int vitesseMax) {
+        this.vitesseMax = vitesseMax;
     }
 }

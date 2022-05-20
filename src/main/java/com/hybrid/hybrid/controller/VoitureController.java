@@ -1,6 +1,9 @@
 package com.hybrid.hybrid.controller;
 
+import com.hybrid.hybrid.domain.Voiture;
+import com.hybrid.hybrid.repository.VoitureRepositoryInterface;
 import org.bson.types.ObjectId;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,30 +14,33 @@ import java.util.List;
  * et une mise en situation de leurs cas d'usages.
  */
 @RestController
+@RequestMapping("/voiture")
 public class VoitureController {
 
-    final MongoRepository<Object, ObjectId> repository;
+    @Autowired
+    private VoitureRepositoryInterface repository;
 
 
     /**
      * Spring fonctionne avec de l'injection de dépendances, pas d'annotation à rajouter dans les controller,
      * pas de new, il va s'en charger pour vous grâce à l'annotation présente sur cette classe.
      */
-    public VoitureController(MongoRepository repository) { // Il vous faut une implem à vous pour que ça compile
+    public VoitureController(VoitureRepositoryInterface repository) { // Il vous faut une implem à vous pour que ça compile
         this.repository = repository;
     }
 
     @GetMapping("/entity")
-    public List<Object> list(@RequestParam(required = false) String name) {
+    public List<Voiture> getListVoitures(@RequestParam(required = false) String name)
+    {
         return repository.findAll();
     }
 
-    @PostMapping("/entity")
-    public Object insert(@RequestBody Object entity) {
-        if (entity == null) {
+    @PostMapping("/add_entity")
+    public Object insert(@RequestBody Voiture voiture) {
+        if (voiture == null) {
             throw new CustomException("Must be not null");
         }
-        return repository.save(entity);
+        return repository.save(voiture);
     }
 
 }
