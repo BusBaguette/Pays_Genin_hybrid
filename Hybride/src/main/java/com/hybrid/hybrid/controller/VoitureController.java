@@ -29,10 +29,15 @@ public class VoitureController {
         this.repository = repository;
     }
 
-    @GetMapping("/entity")
-    public List<Voiture> getListVoitures(@RequestParam(required = false) String name)
+    @GetMapping("")
+    public List<Voiture> getListVoitures()
     {
         return repository.findAll();
+    }
+
+    @GetMapping("/{id}")
+    public Voiture getVoiture(@RequestParam ObjectId id) {
+        return repository.findVoitureById(id);
     }
 
     @PostMapping("/add_entity")

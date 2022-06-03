@@ -7,8 +7,8 @@ import org.springframework.data.mongodb.repository.Query;
 
 import java.util.List;
 
-public interface VoitureRepositoryInterface extends MongoRepository<Voiture, ObjectId> {
+public interface VoitureRepositoryInterface extends MongoRepository<Voiture, String> {
 
-    Voiture findVoitureById(ObjectId objectId);
+    Voiture findVoitureById(ObjectId id);
     List<Voiture> findAll();
 }
