@@ -1,43 +1,26 @@
-package com.hybrid.hybrid.domain;
+package com.hybrid.hybrid.domain.dto;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.CompoundIndex;
-import org.springframework.data.mongodb.core.index.CompoundIndexes;
-import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.List;
-import java.util.UUID;
-@CompoundIndexes({@CompoundIndex(name = "marque_modele", def = "{'marque' : 1, 'model' : 1}")})
-@Document(collection = "Voiture")
-public class Voiture {
-    @Id
-    private ObjectId id;
 
-    @Field(value = "marque")
+public class VoitureDTO {
+    private String id;
     private String marque;
-    @Field(value = "model")
     private String model;
-    @Field(value = "prix")
     private float prix;
-    @Field(value = "chevauxThermique")
     private int nbChvThermique;
-    @Field(value = "chevauxElectrique")
     private int nbChvElec;
-    @Field(value = "couple")
     private int couple;
-    @Field(value = "puissanceElectrique")
     private int puissanceElectrique;
-    @Field(value = "autonomie")
     private int autonomie;
-    @Field(value = "vitesseMax")
     private int vitesseMax;
-    @Field(value = "equipementsAuto")
-    private List<EquipementAuto> equipementsAuto;
+    private List<EquipementAutoDTO> equipementsAutoDTOS;
 
-    public Voiture(String marque, String model, float prix, int nbChvThermique, int nbChvElec, int couple, int puissanceElectrique, int autonomie, int vitesseMax, List<EquipementAuto> equipementsAuto) {
+    public VoitureDTO(String id, String marque, String model, float prix, int nbChvThermique, int nbChvElec, int couple, int puissanceElectrique, int autonomie, int vitesseMax, List<EquipementAutoDTO> equipementsAutoDTOS) {
+        this.id = id;
         this.marque = marque;
         this.model = model;
         this.prix = prix;
@@ -47,17 +30,17 @@ public class Voiture {
         this.puissanceElectrique = puissanceElectrique;
         this.autonomie = autonomie;
         this.vitesseMax = vitesseMax;
-        this.equipementsAuto = equipementsAuto;
+        this.equipementsAutoDTOS = equipementsAutoDTOS;
     }
 
-    public Voiture() {
+    public VoitureDTO() {
     }
 
-    public ObjectId getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(ObjectId id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -133,11 +116,11 @@ public class Voiture {
         this.vitesseMax = vitesseMax;
     }
 
-    public List<EquipementAuto> getEquipementsAuto() {
-        return equipementsAuto;
+    public List<EquipementAutoDTO> getEquipementsAutoDTOS() {
+        return equipementsAutoDTOS;
     }
 
-    public void setEquipementsAuto(List<EquipementAuto> equipementsAuto) {
-        this.equipementsAuto = equipementsAuto;
+    public void setEquipementsAutoDTOS(List<EquipementAutoDTO> equipementsAutoDTOS) {
+        this.equipementsAutoDTOS = equipementsAutoDTOS;
     }
 }
