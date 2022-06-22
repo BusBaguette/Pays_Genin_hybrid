@@ -35,6 +35,10 @@ public class EquipementAutoController {
         this.mapper = mapper;
     }
 
+    /**
+     * Méthode GET qui renvoie la liste de tous les équipements auto
+     * @return Liste de tous les équipements auto
+     */
     @GetMapping("")
     public List<EquipementAutoDTO> getListEquipements() {
         return repository.findAll().stream()
@@ -42,11 +46,22 @@ public class EquipementAutoController {
                 .collect(toList());
     }
 
+    /**
+     * Méthode GET qui renvoie l'équipement auto dont l'ID est passé en paramètre
+     * @param id ID de l'équipement à récupérer
+     * @return L'équipement auto dont son ID a été passé en paramètre
+     */
     @GetMapping("/{id}")
     public EquipementAuto getEquipementAuto(@PathVariable ObjectId id) {
         return repository.findEquipementById(id);
     }
 
+
+    /**
+     * Méthode POST qui permet d'ajouter un équipementAutoDTO
+     * @param equipementAutoDTO EquipementAutoDTO a ajouté
+     * @return EquipementAutoDTO qui a été ajoutée
+     */
     @PostMapping("/add_equipement")
     public EquipementAutoDTO insert(@RequestBody EquipementAutoDTO equipementAutoDTO) {
         EquipementAuto equipementAuto = mapper.dtoToEquipementAuto(equipementAutoDTO);
@@ -57,6 +72,12 @@ public class EquipementAutoController {
         return mapper.toEquipementAutoDTO(repository.save(equipementAuto));
     }
 
+    /**
+     * Méthode PUT qui permet de modifier un équipement auto
+     * @param id Id de l'équipement auto à modifier
+     * @param equipementautoDTO EquipementAutoDTO avec les nouvelles informations
+     * @return EquipementAutoDTO modifié
+     */
     @PutMapping("/{id}")
     public EquipementAutoDTO putEquipement(@PathVariable ObjectId id, @RequestBody EquipementAutoDTO equipementautoDTO) {
         if(equipementautoDTO == null){
@@ -80,6 +101,12 @@ public class EquipementAutoController {
         return updateEquipementAuto;
     }
 
+
+    /**
+     * Méthode DELETE qui permet de supprimer un EquipementAuto en passant son id et la supprimer des voitures
+     * @param id ID de la voiture a supprimer
+     * @return Renvoie l'EquipementAutoDTO supprimé
+     */
     @DeleteMapping("/{id}")
     public EquipementAutoDTO deleteEquipement(@PathVariable("id") ObjectId id){
         List<Voiture> voitures = repositoryvoiture.findAll();

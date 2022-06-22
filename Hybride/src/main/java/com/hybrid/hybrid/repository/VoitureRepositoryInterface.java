@@ -11,17 +11,38 @@ import java.util.List;
 
 public interface VoitureRepositoryInterface extends MongoRepository<Voiture, String> {
 
+    /**
+     * Methode permettant la récupération d'une voiture par son ObjectId
+     * @param id Id de la voiture à recupérer
+     * @return une voiture de type Voiture
+     */
     Voiture findVoitureById(ObjectId id);
 
+    /**
+     * Methode permettant la suppression d'une voiture par son ObjectId
+     * @param id Id de la voiture a supprimé
+     * @return La voiture supprimée
+     */
     Voiture deleteVoitureById(ObjectId id);
+
+    /**
+     * Methode permettant de récupérer toutes les voiture de la BD
+     * @return List de voiture de type Voiture
+     */
     List<Voiture> findAll();
 
+    /**
+     * Methode qui le nombre de model de voiture pour une marque donné
+     * @param marque Marque dont on veut savoir le nombre de modèle
+     * @return Une liste d'object du résultat de cette requête
+     */
     @Aggregation({"{'$match':{'marque': ?0}}", "{$count: 'model'}","{$project : { model : 1}}"})
     AggregationResults<Object> countModelByMarque(String marque);
 
-    /*
-        Pipeline d'agrégation qui groupe les Voitures par modèle
+    /**
+     * Compte le nombre de model par marque
+     * @return retourne une liste d'objet du résultat de la requête
      */
-    @Aggregation({"{$match : {'marque': ?0}}", "{$group : {'model' : 'model'}}"})
-    AggregationResults<Voiture> groupByModel(String marque);
+    @Aggregation({"{$group : { _id: '$marque', count: {$sum: 1}}}"})
+    AggregationResults<Object> countNbModelPerMarque();
 }
