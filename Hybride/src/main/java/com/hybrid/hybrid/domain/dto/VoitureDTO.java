@@ -17,9 +17,9 @@ public class VoitureDTO {
     private int puissanceElectrique;
     private int autonomie;
     private int vitesseMax;
-    private List<EquipementAutoDTO> equipementsAutoDTOS;
+    private List<String> equipementsAutoDTOS;
 
-    public VoitureDTO(String id, String marque, String model, float prix, int nbChvThermique, int nbChvElec, int couple, int puissanceElectrique, int autonomie, int vitesseMax, List<EquipementAutoDTO> equipementsAutoDTOS) {
+    public VoitureDTO(String id, String marque, String model, float prix, int nbChvThermique, int nbChvElec, int couple, int puissanceElectrique, int autonomie, int vitesseMax, List<String> equipementsAutoDTOS) {
         this.id = id;
         this.marque = marque;
         this.model = model;
@@ -116,11 +116,11 @@ public class VoitureDTO {
         this.vitesseMax = vitesseMax;
     }
 
-    public List<EquipementAutoDTO> getEquipementsAutoDTOS() {
+    public List<String> getEquipementsAutoDTOS() {
         return equipementsAutoDTOS;
     }
 
-    public void setEquipementsAutoDTOS(List<EquipementAutoDTO> equipementsAutoDTOS) {
+    public void setEquipementsAutoDTOS(List<String> equipementsAutoDTOS) {
         this.equipementsAutoDTOS = equipementsAutoDTOS;
     }
 }

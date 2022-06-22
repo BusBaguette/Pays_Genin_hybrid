@@ -11,7 +11,7 @@ import java.util.List;
 
 @CompoundIndexes({@CompoundIndex(name = "nom_ville", def = "{'nom' : 1, 'ville' : 1}")})
 @Document(collection = "Concession")
-public class Concession {
+public class    Concession {
     @Id
     private ObjectId id;
     @Field(value = "nom")
@@ -19,9 +19,9 @@ public class Concession {
     @Field(value = "ville")
     private String ville;
     @Field(value = "voitures")
-    private List<Voiture> voitures;
+    private List<ObjectId> voitures;
 
-    public Concession(ObjectId id, String nom, String ville, List<Voiture> voitures) {
+    public Concession(String nom, String ville, List<ObjectId> voitures) {
         this.id = id;
         this.nom = nom;
         this.ville = ville;
@@ -55,11 +55,11 @@ public class Concession {
         this.ville = ville;
     }
 
-    public List<Voiture> getVoitures() {
+    public List<ObjectId> getVoitures() {
         return voitures;
     }
 
-    public void setVoitures(List<Voiture> voitures) {
+    public void setVoitures(List<ObjectId> voitures) {
         this.voitures = voitures;
     }
 }

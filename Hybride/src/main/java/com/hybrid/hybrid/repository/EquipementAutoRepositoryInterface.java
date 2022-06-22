@@ -9,5 +9,6 @@ import java.util.List;
 public interface EquipementAutoRepositoryInterface extends MongoRepository<EquipementAuto, String> {
 
     EquipementAuto findEquipementById(ObjectId id);
+    EquipementAuto deleteEquipementAutoById(ObjectId id);
     List<EquipementAuto> findAll();
 }

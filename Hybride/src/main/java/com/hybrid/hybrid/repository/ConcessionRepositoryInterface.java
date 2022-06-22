@@ -9,5 +9,8 @@ import java.util.List;
 public interface ConcessionRepositoryInterface extends MongoRepository<Concession, String> {
 
     Concession findConcessionById(ObjectId id);
+
+    Concession deleteConcessionById(ObjectId id);
+
     List<Concession> findAll();
 }

@@ -35,9 +35,9 @@ public class Voiture {
     @Field(value = "vitesseMax")
     private int vitesseMax;
     @Field(value = "equipementsAuto")
-    private List<EquipementAuto> equipementsAuto;
+    private List<ObjectId> equipementsAuto;
 
-    public Voiture(String marque, String model, float prix, int nbChvThermique, int nbChvElec, int couple, int puissanceElectrique, int autonomie, int vitesseMax, List<EquipementAuto> equipementsAuto) {
+    public Voiture(String marque, String model, float prix, int nbChvThermique, int nbChvElec, int couple, int puissanceElectrique, int autonomie, int vitesseMax, List<ObjectId> equipementsAuto) {
         this.marque = marque;
         this.model = model;
         this.prix = prix;
@@ -133,11 +133,11 @@ public class Voiture {
         this.vitesseMax = vitesseMax;
     }
 
-    public List<EquipementAuto> getEquipementsAuto() {
+    public List<ObjectId> getEquipementsAuto() {
         return equipementsAuto;
     }
 
-    public void setEquipementsAuto(List<EquipementAuto> equipementsAuto) {
+    public void setEquipementsAuto(List<ObjectId> equipementsAuto) {
         this.equipementsAuto = equipementsAuto;
     }
 }

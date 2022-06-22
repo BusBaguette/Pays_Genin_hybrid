@@ -15,9 +15,9 @@ public class ConcessionDTO {
 
     private String ville;
 
-    private List<VoitureDTO> voituresDTO;
+    private List<String> voituresDTO;
 
-    public ConcessionDTO(String id, String nom, String ville, List<VoitureDTO> voituresDTO) {
+    public ConcessionDTO(String id, String nom, String ville, List<String> voituresDTO) {
         this.id = id;
         this.nom = nom;
         this.ville = ville;
@@ -48,11 +48,11 @@ public class ConcessionDTO {
         this.ville = ville;
     }
 
-    public List<VoitureDTO> getVoituresDTO() {
+    public List<String> getVoituresDTO() {
         return voituresDTO;
     }
 
-    public void setVoituresDTO(List<VoitureDTO> voituresDTO) {
+    public void setVoituresDTO(List<String> voituresDTO) {
         this.voituresDTO = voituresDTO;
     }
 }
