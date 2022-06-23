@@ -7,6 +7,9 @@ import org.springframework.data.mongodb.core.index.CompoundIndexes;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+/**
+ * Entité EquipementAuto sauvegardé en base de donnée
+ */
 @CompoundIndexes({@CompoundIndex(name = "nom", def = "{'nom' : 1}")})
 @Document(collection = "EquipementAuto")
 public class EquipementAuto {

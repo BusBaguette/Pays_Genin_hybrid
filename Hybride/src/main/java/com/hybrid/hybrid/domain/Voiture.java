@@ -10,6 +10,10 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.List;
 import java.util.UUID;
+
+/**
+ * Entité Voiture sauvegardé en base de donnée
+ */
 @CompoundIndexes({@CompoundIndex(name = "marque_modele", def = "{'marque' : 1, 'model' : 1}")})
 @Document(collection = "Voiture")
 public class Voiture {

@@ -20,8 +20,7 @@ import java.util.List;
 import static java.util.stream.Collectors.toList;
 
 /**
- * Les Controller vont vous permettre une exposition rapide vos {@link org.springframework.data.mongodb.repository.MongoRepository}
- * et une mise en situation de leurs cas d'usages.
+ * Le Controller Voiture va nous permettre une exposition rapide de nos Endpoints qui concerne les voitures
  */
 @RestController
 @RequestMapping("/voiture")

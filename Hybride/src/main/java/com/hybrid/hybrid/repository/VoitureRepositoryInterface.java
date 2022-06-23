@@ -9,6 +9,9 @@ import org.springframework.data.mongodb.repository.Query;
 
 import java.util.List;
 
+/**
+ * Interface permettant des requêtes sur les Voiture en BD
+ */
 public interface VoitureRepositoryInterface extends MongoRepository<Voiture, String> {
 
     /**

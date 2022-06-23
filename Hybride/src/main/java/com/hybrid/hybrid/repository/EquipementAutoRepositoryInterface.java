@@ -6,6 +6,9 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;
 
+/**
+ * Interface permettant des requêtes sur les EquipementAuto en BD
+ */
 public interface EquipementAutoRepositoryInterface extends MongoRepository<EquipementAuto, String> {
 
     /**

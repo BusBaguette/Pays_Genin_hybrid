@@ -18,6 +18,9 @@ import java.util.List;
 
 import static java.util.stream.Collectors.toList;
 
+/**
+ * Le Controller Concession va nous permettre une exposition rapide de nos Endpoints qui concerne les concessions
+ */
 @RestController
 @RequestMapping("/concession")
 public class ConcessionController {

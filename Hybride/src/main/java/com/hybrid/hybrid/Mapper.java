@@ -13,6 +13,9 @@ import java.util.List;
 
 import static java.util.stream.Collectors.toList;
 
+/**
+ * Classe permettant la trasformation d'une entiteDTO en entité ou entité en entiteDTO
+ */
 @Component
 public class Mapper {
 

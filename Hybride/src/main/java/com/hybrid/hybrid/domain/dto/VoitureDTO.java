@@ -6,6 +6,9 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.List;
 
+/**
+ * Objet de transfert de données permettant un affichage des entités Voiture de la base de donnée
+ */
 public class VoitureDTO {
     private String id;
     private String marque;

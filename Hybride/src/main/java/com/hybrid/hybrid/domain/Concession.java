@@ -9,9 +9,12 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.List;
 
+/**
+ * Entité Concession sauvegardé en base de donnée
+ */
 @CompoundIndexes({@CompoundIndex(name = "nom_ville", def = "{'nom' : 1, 'ville' : 1}")})
 @Document(collection = "Concession")
-public class    Concession {
+public class Concession {
     @Id
     private ObjectId id;
     @Field(value = "nom")

@@ -6,6 +6,9 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;
 
+/**
+ * Interface permettant des requêtes sur les Concssion en BD
+ */
 public interface ConcessionRepositoryInterface extends MongoRepository<Concession, String> {
 
     /**

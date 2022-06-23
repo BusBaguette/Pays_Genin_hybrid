@@ -9,6 +9,9 @@ import com.hybrid.hybrid.repository.VoitureRepositoryInterface;
 import org.bson.types.ObjectId;
 import org.springframework.http.HttpStatus;
 
+/**
+ * Permet de verifier la validité des objets envoyer par l'utilisateur
+ */
 public class Verify {
 
     /**

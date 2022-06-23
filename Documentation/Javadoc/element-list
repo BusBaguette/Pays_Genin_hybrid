@@ -1,0 +1,8 @@
+com.hybrid.hybrid
+com.hybrid.hybrid.controller
+com.hybrid.hybrid.controller.exceptions
+com.hybrid.hybrid.controller.verify
+com.hybrid.hybrid.domain
+com.hybrid.hybrid.domain.dto
+com.hybrid.hybrid.error
+com.hybrid.hybrid.repository

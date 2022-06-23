@@ -1,5 +1,8 @@
 package com.hybrid.hybrid.domain.dto;
 
+/**
+ * Objet de transfert de données permettant un affichage des entités EquipementAuto de la base de donnée
+ */
 public class EquipementAutoDTO {
 
     private String id;
